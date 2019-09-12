@@ -1,40 +1,54 @@
-def user_numbers(user_inputs):
-    numbers = []
-    for user_input in list(user_inputs):
-        numbers.append(int(user_input))
-    return numbers
+from model.Numbers import Numbers
 
 
-def count_strikes(numbers, random_numbers):
-    strikes = 0
-    for i in range(0, 3):
-        if numbers[i] == random_numbers[i]:
-            strikes += 1
-    return strikes
+def checkNumbersType(numbers):
+    if not isinstance(numbers, Numbers):
+        raise ValueError("Numbers 객체의 인스턴스가 아닙니다.")
 
 
-def count_contains(numbers, random_numbers):
-    contains = 0
-    for number in numbers:
-        if number in random_numbers:
-            contains += 1
-    return contains
+class Baseball:
+    def __init__(self, random_numbers):
+        checkNumbersType(random_numbers)
+        self.random_numbers = random_numbers
+        self.strikes = 0
+        self.balls = 0
+
+    def __count_strikes(self, user_numbers):
+        checkNumbersType(user_numbers)
+        strikes = 0
+        for i in range(0, 3):
+            if user_numbers.get(i) == self.random_numbers.get(i):
+                strikes += 1
+        self.strikes = strikes
+
+    def __count_balls(self, user_numbers):
+        checkNumbersType(user_numbers)
+        contains = self.__count_contains(user_numbers)
+        self.balls = contains - self.strikes
+
+    def __count_contains(self, user_numbers):
+        checkNumbersType(user_numbers)
+        contains = 0
+        for user_number in user_numbers:
+            if user_number in self.random_numbers:
+                contains += 1
+        return contains
+
+    def play(self, user_numbers):
+        self.__count_strikes(user_numbers)
+        self.__count_balls(user_numbers)
+
+    def result(self):
+        result_message = ""
+        if self.balls == 0 and self.strikes == 0:
+            result_message += "아웃"
+
+        if self.strikes != 0:
+            result_message += str(self.strikes) + " 스트라이크 "
+
+        if self.balls != 0:
+            result_message += str(self.balls) + " 볼"
+
+        return result_message
 
 
-def count_balls(numbers, random_numbers, strikes):
-    contains = count_contains(numbers, random_numbers)
-    return contains - strikes
-
-
-def message_builder(balls, strikes):
-    result_message = ""
-    if balls == 0 and strikes == 0:
-        result_message += "아웃"
-
-    if strikes != 0:
-        result_message += str(strikes) + " 스트라이크 "
-
-    if balls != 0:
-        result_message += str(balls) + " 볼"
-
-    return result_message

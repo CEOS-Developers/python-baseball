@@ -36,3 +36,18 @@
 
 1. [위키피디아](https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC)
 2. [생활코딩](https://opentutorials.org/course/697/3828)
+
+## 객체 지향
+
+1. [위키피디아](https://ko.wikipedia.org/wiki/%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+2. [생활코딩](https://opentutorials.org/course/743/6553)
+
+## 보완해야 할 부분
+
+1. 숫자 입력 하는 부분
+
+- 적게 치면 ~~프로그램이 죽는다.~~
+- 숫자가 아닌 문자를 입력했을 때 ~~프로그램이 죽는다.~~
+
+- 똑같은 수를 입력해도 실행이 된다. ~~=> 프로그램이 죽는다.~~
+- 3개 보다 많이 입력해도 실행이 된다. ~~=> 프로그램이 죽는다.~~
