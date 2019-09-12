@@ -31,3 +31,8 @@
 3 스트라이크
 축하합니다. 승리하였습니다.
 ```
+
+## MVC 패턴
+
+1. [위키피디아](https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC)
+2. [생활코딩](https://opentutorials.org/course/697/3828)
